@@ -4,16 +4,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
  *
- *  Website Name
+ *  Website Name 网站名称
  *
- *  Write the name of your website this will appear by default.
+ *  写下您网站的名称，这将默认显示。
  *
  */
 $config['website_name'] = '';
 
 /**
  *
- *  Timezone
+ *  Timezone 时区
  *
  *  http://php.net/manual/en/timezones.php
  *
@@ -22,9 +22,9 @@ $config['timezone'] = 'GMT';
 
 /**
  *
- *  Maintenance Mode
+ *  Maintenance Mode 维护模式
  *
- *  1 = Enable | 0 = Disable
+ *  1 = Enable(启用) | 0 = Disable(禁用)
  *
  */
 $config['maintenance_mode'] = '0';
@@ -33,93 +33,93 @@ $config['maintenance_mode'] = '0';
  *
  * Redis Status
  *
- * 1 = Enable | 0 = Disable
+ * 1 = Enable(启用) | 0 = Disable(禁用)
  *
- * 0 is a must for Windows based servers while 1 is recommended for Linux based servers.
- * If you are running CMS under Linux and getting RedisException error, it means that you have a problem
- * with your Redis installation or extension.
- * It is also recommended to set password for redis through application/config/redis.php
+ * 对于基于Windows的服务器，0是必须的，而对于基于Linux的服务器，建议使用1。
+ * 如果您在Linux下运行CMS并收到RedisException错误，这意味着您的Redis安装或扩展有问题。
+ * 
+ * 同时建议通过 application/config/redis.php 设置 redis的密码
  *
- * Currently its only being used in Armory and API
+ * 目前仅用于军械库和API
  *
- * TODO: Redis will be implemented to more parts of code later
+ * TODO：Redis将在以后实现到更多代码部分
  *
  */
 $config['redis_in_cms'] = true;
 
 /**
  *
- *  Invitation Discord
+ *  Invitation Discord 不和谐频道的邀请
  *
- *  Write the invitation of your discord channel.
+ *  写下您的不和谐频道的邀请
  *
  */
 $config['discord_invitation'] = 'W7F4nRW';
 
 /**
  *
- *  Realmlist
+ *  Realmlist 领域列表
  *
- *  Write the realmlist used on your server to publish it on the website.
+ *  编写服务器上使用的 realmlist 领域列表，以便在网站上发布它。
  *
  */
 $config['realmlist'] = '';
 
 /**
- *  Bnet enabled?
+ *  Bnet enabled? 是否启用Bnet？
  *
- *  true for Emulators BattleNet.
- *  false for not bnetserver
+ *  true for Emulators BattleNet. true适用于模拟器战网。
+ *  false for not bnetserver false表示不是bnetserver
  */
 $config['bnet_enabled'] = false;
 
 /**
- *  Emulator
- *
- *
+ *  Emulator 模拟仿真器
  *  srp6 = For Emulators (SRP6 Compatibility)
- *  old-trinity =  Trinity Core not SRP6  (Sha_pass_hash Compatibility)
- *  hex = For emulators Mangos  (HEX6 Compatibility)
- *
+ *  srp6 = 用于仿真器（SRP6兼容性）
+ *  old-trinity =  Trinity Core not SRP6(Sha_pass_hash Compatibility)
+ *  old-trinity =  Trinity Core 不是 SRP6  (Sha_pass_hash 兼容性)
+ *  hex = For emulators Mangos  (HEX6 Compatibility) 
+ *  hex = 用于模拟器 Mangos  (HEX6 兼容性)
  */
 $config['emulator'] = 'hex';
 
 /**
  *
- *  Expansion Supported
+ *  Expansion Supported 支持的扩展
  *
- *  Select the expansion that your website will use among these options:
+ *  从以下选项中选择您的网站将使用的扩展：
  *
- *  1 = Vanilla
- *  2 = The Burning Crusade
- *  3 = Wrath of the Lich King
- *  4 = Cataclysm
- *  5 = Mist of Pandaria
- *  6 = Warlords of Draenor
- *  7 = Legion
- *  8 = Battle for Azeroth
- *  9 = Shadowlands
+ *  1 = Vanilla(香草60)
+ *  2 = The Burning Crusade(TBC燃烧的远征70)
+ *  3 = Wrath of the Lich King(WLK巫妖王之怒80)
+ *  4 = Cataclysm(CTM大地的裂变85)
+ *  5 = Mist of Pandaria(MOP熊猫人之谜90)
+ *  6 = Warlords of Draenor(WOD德拉诺之王100)
+ *  7 = Legion(LEG军团再临110)
+ *  8 = Battle for Azeroth(BFA争霸艾泽拉斯120)
+ *  9 = Shadowlands(暗影国度50)
  *
  */
 $config['expansion'] = '1';
 
 /**
  *
- *  Theme Name
+ *  Theme Name 主题名称
  *
- *  Write the name of your theme
- *  The name is the same as the main folder
- *  The css must also have the same name
- *  Default: default
+ *  写下你的主题名称
+ *  名称与主文件夹相同
+ *  css 也必须具有相同的名称
+ *  默认：default
  *
  */
 $config['theme_name'] = '%THEME%';
 
 /**
  *
- *  Social Links
+ *  社交链接
  *
- *  Write the links for redirect to your social networks.
+ *  编写重定向到您的社交网络的链接。
  *
  */
 $config['social_facebook'] = '';
@@ -128,10 +128,10 @@ $config['social_youtube']  = '';
 
 /**
  *
- *  Recaptcha (V2)
+ *  Recaptcha (V2) 多重验证V2版
  *
- *  Write the necessary keys to enable recaptcha in the register
- *  Use the following page to create the necessary keys.
+ *  写入必要的密钥以在寄存器中启用 recaptcha
+ *  使用以下页面创建必要的密钥。
  *  https://www.google.com/recaptcha/admin#list
  *
  */
@@ -140,10 +140,10 @@ $config['recaptcha_secret']  = '';
 
 /**
  *
- *  SMTP
+ *  SMTP 邮件传输协议
  *
- *  Write the necessary information for use SMTP to use in recovery password
- *  and account activation.
+ * 编写使用 SMTP 的必要信息以用于恢复密码和帐户激活。
+ *
  *
  */
 $config['smtp_host']   = '';
@@ -154,9 +154,8 @@ $config['smtp_crypto'] = 'ssl';
 
 /**
  *
- *  Email Settings
- *
- *  Write the necessary information to use in sending emails.
+ *  电子邮件设置
+ *  写下必要的信息以用于发送电子邮件。
  *
  */
 $config['email_settings_sender']      = '';
@@ -168,50 +167,50 @@ $config['template_recover_p2']   = 'application/views/mails/recover_password_p2.
 
 /**
  *
- *  Account Activation
+ *  帐号激活
  *
- *  Enable or Disable the option to activate accounts by email.
+ *  启用或禁用通过电子邮件激活帐户的选项。
  *
- *  true  = Enable
- *  false = Disable
+ *  true  = Enable(启用)
+ *  false = Disable(禁用)
  *
  */
 $config['account_activation_required'] = false;
 
 /**
  *
- *  Administrator Access Level
+ *  管理员访问级别
  *
- *  Minimum gmlevel to access to admin sections.
+ *  访问管理部分的最低 gm 级别。
  *
  */
 $config['admin_access_level'] = '3';
 
 /**
  *
- *  Moderator Access Level
+ *  版主访问级别
  *
- *  Minimum gmlevel to access to mod sections.
+ *  访问 mod 部分的最低 gm 级别。
  *
  */
 $config['mod_access_level'] = '2';
 
 /**
  *
- *  Migrate Status
+ *  迁移状态
  *
- *  Warning: Don't change this configuration.
+ *  警告：不要更改此配置。
  *
  */
 $config['migrate_status'] = '1';
 
 /**
  *
- *  Check Realm Local
+ *  检查本地领域
  *
- *  Set the way in which it checks the server status.
- *  If false, the public IP from the `realmlist` table of the `auth` database is used.
- *  Otherwise, if it is true, it performs the check by means of the private IP.
+ *  设置检查服务器状态的方式。
+ *  如果为 false，则使用来自 "auth" 数据库的 "realmlist" 表的公共 IP。
+ *  否则，如果为 true，则通过私有 IP 执行检查。
  *
  */
 $config['check_realm_local'] = false;
