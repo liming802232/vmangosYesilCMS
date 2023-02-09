@@ -117,7 +117,7 @@ $config['theme_name'] = '%THEME%';
 
 /**
  *
- *  社交链接
+ *  Social Links  社交链接
  *
  *  编写重定向到您的社交网络的链接。
  *
@@ -154,7 +154,7 @@ $config['smtp_crypto'] = 'ssl';
 
 /**
  *
- *  电子邮件设置
+ *  Email Settings 电子邮件设置
  *  写下必要的信息以用于发送电子邮件。
  *
  */
@@ -167,7 +167,7 @@ $config['template_recover_p2']   = 'application/views/mails/recover_password_p2.
 
 /**
  *
- *  帐号激活
+ *  Account Activation 帐号激活
  *
  *  启用或禁用通过电子邮件激活帐户的选项。
  *
@@ -179,7 +179,7 @@ $config['account_activation_required'] = false;
 
 /**
  *
- *  管理员访问级别
+ *  Administrator Access Level 管理员访问级别
  *
  *  访问管理部分的最低 gm 级别。
  *
@@ -188,7 +188,7 @@ $config['admin_access_level'] = '3';
 
 /**
  *
- *  版主访问级别
+ *  Moderator Access Level 版主访问级别
  *
  *  访问 mod 部分的最低 gm 级别。
  *
@@ -197,7 +197,7 @@ $config['mod_access_level'] = '2';
 
 /**
  *
- *  迁移状态
+ *  Migrate Status 迁移状态
  *
  *  警告：不要更改此配置。
  *
@@ -206,7 +206,7 @@ $config['migrate_status'] = '1';
 
 /**
  *
- *  检查本地领域
+ *  Check Realm Local 检查本地领域
  *
  *  设置检查服务器状态的方式。
  *  如果为 false，则使用来自 "auth" 数据库的 "realmlist" 表的公共 IP。
