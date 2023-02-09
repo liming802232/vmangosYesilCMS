@@ -11,13 +11,13 @@
 - 全新的安装脚本，根据操作系统/环境指导用户。
 - 调整以在包括 Apache/Nginx/IIS 在内的多个 Web 服务器上工作。
 - 适用于 *nix 操作系统的 Redis 缓存。
-- 功能 [验证码 reCAPTCHA 系统](https://www.google.com/recaptcha/admin/create)。
+- 功能 [多重验证码 reCAPTCHA](https://www.google.com/recaptcha/admin/create)。
 - 全新的轻量级深色主题。
 - 全新的可定制军械库。
   - 基本角色信息
-  - 3D 模型查看器（快速：使用普通的 `displayID`，详细：使用 Classic 的 DBC 将旧的 `displayID` 转换为 Classic 的 `displayID`。您也可以创建一个单独的表，而不是远程调用。）
+  - 3D 模型查看器（快速：使用普通的 "displayID"，详细：使用 Classic 的 DBC 将旧的 "displayID" 转换为 Classic 的 "displayID"。您也可以创建一个单独的表，而不是远程调用。）
   - 动态基础统计属性
-  - Primary & Secondary Professions
+  - 主 & 副职业
   - PvP 对战状态
   - 能够显示物品附魔（通过使用 WoWHead 的工具提示而不是 ClassicDB）
   - 能够显示所有角色属性，而不仅仅是基本属性
