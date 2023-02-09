@@ -6,13 +6,13 @@ if (! defined('BASEPATH')) {
 
 /*
   |--------------------------------------------------------------------------
-  | Supported Languages
+  | 支持的语言
   |--------------------------------------------------------------------------
   |
-  | Contains all languages your site will store data in. Other languages can
-  | still be displayed via language files, thats totally different.
+  | 包含您的网站将用于存储数据的所有语言。
+  | 其他语言仍然可以通过语言文件显示，这是完全不同的。
   |
-  | Check for HTML equivilents for characters such as � with the URL below:
+  | 检查字符的 HTML 等效性，例如以下 URL：
   |    http://htmlhelp.com/reference/html40/entities/latin1.html
   |
   |
@@ -54,10 +54,10 @@ $config['supported_languages'] = [
 
 /*
   |--------------------------------------------------------------------------
-  | Default Language
+  | 默认语言
   |--------------------------------------------------------------------------
   |
-  | If no language is specified, which one to use? Must be in the array above.
+  | 如果没有指定语言，使用哪一种？ 必须在上面的数组中。
   |
   |    en
   |
@@ -66,10 +66,10 @@ $config['default_language'] = 'en';
 
 /*
   |--------------------------------------------------------------------------
-  | Detect Browser Language
+  | 检测浏览器语言
   |--------------------------------------------------------------------------
   |
-  | If enabled detecting browser language and disable default language
+  | 如果启用检测浏览器语言并禁用默认语言
   |
   |    FALSE
   |
@@ -78,11 +78,11 @@ $config['detect_language'] = false;
 
 /*
   |--------------------------------------------------------------------------
-  | Default URI
+  | 默认 URI
   |--------------------------------------------------------------------------
   |
-  | Where to redirect if no language in URI.
-  | Example if default_uri 'welcome' => /en/weclome
+  | 如果 URI 中没有语言，则重定向到哪里。
+  | 例子 如果 default_uri 'welcome' => /en/weclome
   |
   |    welcome
   |
@@ -91,10 +91,10 @@ $config['default_uri'] = '/';
 
 /*
   |--------------------------------------------------------------------------
-  | Special URIs
+  | 特殊 URIs
   |--------------------------------------------------------------------------
   |
-  | This URIs is not be localized
+  | 此 URI 未本地化
   |
   |    array('admin', 'auth', 'api')
   |
