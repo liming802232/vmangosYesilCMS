@@ -20,6 +20,12 @@ if (! defined('BASEPATH')) {
   |
  */
 $config['supported_languages'] = [
+    'cn' => [
+        'name'      => 'Chinese',
+        'folder'    => 'chinese',
+        'direction' => 'ltr',
+        'codes'     => ['cn', 'chinese', 'zh_CN'],
+    ],    
     'es' => [
         'name'      => 'Español',
         'folder'    => 'spanish',
