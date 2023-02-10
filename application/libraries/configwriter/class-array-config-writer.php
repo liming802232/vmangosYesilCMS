@@ -10,30 +10,30 @@ Version 1.2.1
 class Array_Config_Writer
 {
     /**
-     * Skip updating the index if the index acctually exist
+     * 如果索引实际存在则跳过更新索引
      *
-     * This will also create new index if not exist
+     * 如果不存在，这也会创建新索引
      */
     public const SKIP_IF_EXIST = 0;
     /**
-     * Skip creating new index if the specified index is not found
+     * 如果找不到指定的索引，则跳过创建新索引
      */
     public const SKIP_CREATE_IF_NOT_EXIST = 1;
     /**
-     * Update or create the index
+     * 更新或创建索引
      */
     public const CREATE_OR_UPDATE = 2;
     /**
-     * The config file to write
+     * 要写入的配置文件
      *
-     * set during with class construct
+     * 在类构造期间设置
      *
      * @var strng
      */
     protected $_file;
 
     /**
-     * Content read from file
+     * 从文件中读取的内容
      *
      * @var string
      */
@@ -41,21 +41,21 @@ class Array_Config_Writer
 
 
     /**
-     * The variable to search for in the file
+     * 要在文件中搜索的变量
      *
-     * eg if we can to update 'option_name' value in a file with
-     * $config['option_name'] array, the variable is 'config'
+     * 例如，如果我们可以更新文件中的“option_name”值
+     * $config['option_name'] 数组，变量为'config'
      *
-     * @note we assume each option index is on seperate line like
+     * @注意我们假设每个选项索引都在单独的行上
      *  $config['option_name_one']  = 'one' ;
      *  $config['option_name_two']  = 'two' ;
      *
-     * if you have array like $config['options'] = array(
+     * 如果你有类似 $config['options'] = array(
      *                                      'option_name_one' => 'one',
      *                                      'option_name_two' => 'two'
      *                                 );
-     * You have to first get $config['options'] in variable then manually update
-     * the elements, after which you will can use this config writer to update the
+     * 你必须先在变量中获取 $config['options'] 然后手动更新
+     * elements，之后你可以使用这个配置编写器来更新
      * $config['options'] element
      *
      * @var string
@@ -63,7 +63,7 @@ class Array_Config_Writer
     protected $_variable;
 
     /**
-     * The target index of the variable
+     * 变量的目标索引
      *
      * @var string
      */
@@ -83,10 +83,10 @@ class Array_Config_Writer
 
 
     /**
-     * This option determines whether the file should be updated automatically
+     *  这个选项决定文件是否应该自动更新
      *
-     * if set to false, you will manually call save() method after you
-     * have done your writing with write() method
+     * 如果设置为false，您将在使用write()方法完成写入后
+     * 手动调用save()方法
      *
      * @since 1.1.0
      * @var boolean
@@ -96,8 +96,8 @@ class Array_Config_Writer
 
     /**
      *
-     * @param  string  $config_file    Asolute path to config file
-     * @param  string  $variable_name  the name of the config varible to update
+     * @param  string  $config_file    配置文件的绝对路径
+     * @param  string  $variable_name  要更新的配置变量的名称
      */
     public function __construct($config_file, $variable_name = '\$config', $auto_save = true)
     {
@@ -106,13 +106,13 @@ class Array_Config_Writer
         $this->setVariableName($variable_name);
 
         if (! file_exists($this->_file)) {
-            //throw new Exception('Config Write Error: Config file doesnt exists ' . $this->_file);
-            $this->_lastError = 'Config Write Error: Config file doesnt exists ' . $this->_file;
+            //throw new Exception('配置写入错误：配置文件不存在 ' . $this->_file);
+            $this->_lastError = '配置写入错误：配置文件不存在 ' . $this->_file;
 
             return;
         }
         if (! $variable_name) {
-            $this->_lastError = 'You must set the set parameter of the library construct has varible to update';
+            $this->_lastError = '您必须设置库构造的 set 参数有变量要更新';
 
             return;
         }
@@ -122,24 +122,24 @@ class Array_Config_Writer
 
 
     /**
-     * Wite or update an item of the config array
+     * 写入或更新配置数组的一项
      *
-     * @param  string|array  $index         To update 'language' index  $config['language']
-     *                                      This will be string 'language'
-     *                                      To update hostname' of $db['default']['hostname'] , then index
-     *                                      will be array( 'default' , 'hostname' )
+     * @param  string|array  $index         更新 'language' 索引 $config['language']
+     *                                      这将是字符串 'language' 要更新
+     *                                      $db['default']['hostname']的主机名'，那么
+     *                                      索引将是数组array( 'default' , 'hostname' )
      *
      * @param  mixed         $replacement
-     * @param  boolean       $write_method  Skip updating item if already exists
-     * @param  null|array    $comments      Comment to add to the top of item (new item), each element
-     *                                      will be placed oon a new line. *  is added before each line , meaning
-     *                                      you dont have to put /** or *  unless you want it show
+     * @param  boolean       $write_method  如果已经存在则跳过更新项目
+     * @param  null|array    $comments      评论添加到项目（新项目）的顶部，每个元素将被放置在一个新行上。
+     *                                      * 添加在每一行之前，这意味着您不必放置 
+     *                                      /** 或 * 除非您希望它显示
      *
      * @return boolean
      *
      * @throws Exception
      *
-     * @note you can not update existing item comment
+     * @请注意，您不能更新现有的项目评论
      *
      *
      */
@@ -153,30 +153,30 @@ class Array_Config_Writer
         $this->_fileContent = trim($this->_fileContent);
 
         if (! $index) {
-            $this->_lastError = 'You must set index you want to update';
+            $this->_lastError = '您必须设置要更新的索引';
 
             return $this;
         }
         $prefix = $this->_variable;
 
         $regex = '#(' . $prefix . ')(';
-        // add a mark in case config item doesnt exists
+        // 添加标记以防配置项不存在
         $mark = "{$prefix}";
-        // we can update multi dementional
+        // 我们可以更新多维
         $indices     = is_array($index) ? $index : array($index);
         $comment_str = '';
 
         foreach ($indices as $i) {
             $is_int = is_int($i);
-            // we make sure we dont chenge the index type if its numeric
+            // 我们确保我们不会更改索引类型，如果它是数字的话
             $new_item_index = $is_int ? $i : "'$i'";
-            // if the index is int, we dont need ' or "" to be checked in the regex
+            // 如果索引是 int，我们不需要在正则表达式中检查 ' 或 ""
             $regex .= '\[\s*';
             $regex .= $is_int ? '' : '(\'|\")';
             $regex .= '(' . $i . ')*';
             $regex .= $is_int ? '' : '(\'|\")';
             $regex .= '\s*\]';
-            // Used before we seperated numeric index from string
+            // 在我们将数字索引与字符串分开之前使用
             //$regex .= '\[\s*(\'|\")(' . $i . ')*(\'|\")\s*\]' ;
 
 
@@ -188,14 +188,14 @@ class Array_Config_Writer
         $mark  .= " = ";
 
         if (preg_match($regex, $this->_fileContent)) {
-            // well config aleady exists
-            // may be is application upgrade :) we wouldnt wana overide user settings
+            // 好配置已经存在
+            // 可能是应用程序升级 :) 我们不想覆盖用户设置
             if ($write_method == self::SKIP_IF_EXIST) {
                 return $this;
             }
-            // update th content
+            // 更新内容
             $this->_fileContent = preg_replace($regex, '$1$2 = ' . var_export($replacement, true), $this->_fileContent);
-        } // config item doesnt exist yet create new index if reqyuired
+        } // 配置项不存在，如果需要则创建新索引
         else {
             switch ($write_method) {
                 case self::SKIP_CREATE_IF_NOT_EXIST:
@@ -203,12 +203,12 @@ class Array_Config_Writer
                 case self::CREATE_OR_UPDATE:
                 case self::SKIP_IF_EXIST:
 
-                    // new item here
+                    // 这里有新项目
                     $mark .= var_export($replacement, true) . ' ;';
                     $mark .= "\n";
                     $mark .= "\n";
 
-                    // add comment if provided
+                    // 如果提供，请添加评论
                     if (is_array($comments) && count($comments) > 0) {
                         //open comment
                         $comment_str .= '/**';
@@ -216,24 +216,24 @@ class Array_Config_Writer
                         foreach ($comments as $line) {
                             $comment_str .= ' * ' . $line . "\n";
                         }
-                        // close the comment
+                        // 关闭评论
                         $comment_str .= '*/';
                     }
 
-                    // lets try remove traling slash from the variable name since
-                    // we are writing php here
+                    // 让我们尝试从变量名中删除尾部斜杠，因为
+                    //我们在这里写php
                     if (substr($mark, 0, 1) == '\\') {
                         $mark = substr($mark, 1);
                     }
 
-                    // we have updated the index, the file will save automatically in the class shutdwon
-                    // we did this allow update multiple index by call write() method as manay times
-                    // as required
+                    // 我们更新了索引，文件将自动保存在类 shutdwon 中
+                    // 我们这样做允许根据需要多次调用 write() 方法来更新多个索引
+                    // 按要求
                     //
 
-                    // check if the file has php closing tag
+                    // 检查文件是否有 php 结束标签
                     if (substr($this->_fileContent, -2) === '?>') {
-                        // remove the closing tag before adding our new item
+                        // 在添加我们的新项目之前删除结束标签
                         $this->_fileContent = substr($this->_fileContent, 0, -2) . "\n" . $comment_str . "\n" . $mark . ' ?>';
                     } else {
                         $this->_fileContent = $this->_fileContent . "\n" . $comment_str . "\n" . $mark . "\n";
@@ -250,9 +250,9 @@ class Array_Config_Writer
     }
 
     /**
-     * Update the file name of the array config
+     * 更新数组配置的文件名
      *
-     * You will olnly do this to transfer the php file content to another file
+     * 你将只执行此操作以将 php 文件内容传输到另一个文件
      *
      * @param  string  $name
      *
@@ -265,8 +265,8 @@ class Array_Config_Writer
 
 
     /**
-     *  Set the config varible name
-     * // actually we expect someting like '\$config' but user migt just provide 'config'
+     *  设置配置变量名
+     * // 实际上我们期望类似 '\$config' 但用户可能只提供 'config'
      *
      * @param  string  $name
      *
@@ -293,9 +293,9 @@ class Array_Config_Writer
     }
 
     /**
-     * We can now update the file content
+     * 我们现在可以更新文件内容
      *
-     * if the _autosave property is true, we auto updte file
+     * 如果 _autosave 属性为 true，我们自动更新文件
      *
      */
     public function __destruct()
@@ -306,10 +306,10 @@ class Array_Config_Writer
     }
 
     /**
-     * Save the new content to file
+     *  将新内容保存到文件
      *
-     * You can call Array_Config_Writer::write() as many times as required
-     * before calling this method
+     * 您可以根据需要多次调用 Array_Config_Writer::write()
+     * 在调用这个方法之前
      *
      * @return \Array_Config_Writer
      */
@@ -323,7 +323,7 @@ class Array_Config_Writer
     }
 
     /**
-     * Check if any error has occured
+     * 检查是否发生任何错误
      *
      * @return boolean
      */
@@ -333,7 +333,7 @@ class Array_Config_Writer
     }
 
     /**
-     * Get last error that occured
+     * 获取最后发生的错误
      *
      * @return string
      */
@@ -343,7 +343,7 @@ class Array_Config_Writer
     }
 
     /**
-     * Set auto save option
+     * 设置自动保存选项
      *
      * @param  boolean  $option
      *
