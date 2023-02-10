@@ -132,7 +132,7 @@ $lang['notification_account_updated']    = '账户已更新';
 $lang['notification_dp_vp_empty']        = 'DP/VP 为空';
 $lang['notification_account_banned']     = '账户被封禁';
 $lang['notification_reason_empty']       = '原因为空';
-$lang['该账户的禁令已解除';
+$lang['notification_account_ban_remove'] = '该账户的禁令已解除';
 $lang['notification_rank_empty']         = '等级为空';
 $lang['notification_rank_granted']       = '等级以授权';
 $lang['notification_rank_removed']       = '等级已删除';
