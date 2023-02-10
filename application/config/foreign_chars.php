@@ -4,10 +4,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------
-| Foreign Characters
-| -------------------------------------------------------------------
-| This file contains an array of foreign characters for transliteration
-| conversion used by the Text helper
+| Foreign Characters 外国人物
+| ---------------------------------------------- ------------------
+| 此文件包含一组用于音译的外来字符
+| 文本助手使用的转换
 |
 */
 $foreign_characters = [
