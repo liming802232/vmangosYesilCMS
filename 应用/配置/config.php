@@ -128,7 +128,8 @@ $config['subclass_prefix'] = 'MY_';
 |
 |	$config['composer_autoload'] = TRUE;
 |
-| 或者，如果您的 vendor/ 目录位于其他位置，您也可以选择设置特定路径：
+| 或者，如果您的 vendor/ 目录位于其他位置，
+| 您也可以选择设置特定路径：
 |
 |	$config['composer_autoload'] = '/path/to/vendor/autoload.php';
 |
@@ -141,46 +142,46 @@ $config['composer_autoload'] = FCPATH . 'vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
-| Allowed URL Characters
+| Allowed URL Characters   允许的 URL 字符
 |--------------------------------------------------------------------------
 |
-| This lets you specify which characters are permitted within your URLs.
-| When someone tries to submit a URL with disallowed characters they will
-| get a warning message.
+| 这使您可以指定在您的 URL 中允许使用哪些字符。
+| 当有人试图提交包含不允许字符的 URL 时，
+| 他们将收到一条警告消息。
 |
-| As a security measure you are STRONGLY encouraged to restrict URLs to
-| as few characters as possible.  By default only these are allowed: a-z 0-9~%.:_-
+| 作为一项安全措施，我们强烈建议您将 URL 限制为尽可能少的字符。
+| 默认情况下只允许这些： a-z 0-9~%.:_-
 |
-| Leave blank to allow all characters -- but only if you are insane.
+| 留空以允许所有字符——但前提是你疯了。
 |
-| The configured value is actually a regular expression character group
-| and it will be executed as: ! preg_match('/^[<permitted_uri_chars>]+$/i
+| 配置的值实际上是一个正则表达式字符组，
+| 它将被执行为： ! preg_match('/^[<permitted_uri_chars>]+$/i
 |
-| DO NOT CHANGE THIS UNLESS YOU FULLY UNDERSTAND THE REPERCUSSIONS!!
+| 除非您完全理解后果，否则请勿更改！
 |
 */
 $config['permitted_uri_chars'] = '‘a-z 0-9~%.:\_\=+%\&-';
 
 /*
 |--------------------------------------------------------------------------
-| Enable Query Strings
+| Enable Query Strings   启用查询字符串
 |--------------------------------------------------------------------------
 |
-| By default CodeIgniter uses search-engine friendly segment based URLs:
+| 默认情况下，CodeIgniter 使用基于搜索引擎友好段的 URL：
 | example.com/who/what/where/
 |
-| You can optionally enable standard query string based URLs:
+| 您可以选择启用基于标准查询字符串的 URL：
 | example.com?who=me&what=something&where=here
 |
-| Options are: TRUE or FALSE (boolean)
+| 选项有: TRUE 或 FALSE (boolean布尔值)
 |
-| The other items let you set the query string 'words' that will
-| invoke your controllers and its functions:
+| 其他项目允许您设置将调用您的控制器及其功能的
+| 查询字符串“words”：
 | example.com/index.php?c=controller&m=function
 |
-| Please note that some of the helpers won't work as expected when
-| this feature is enabled, since CodeIgniter is designed primarily to
-| use segment based URLs.
+| 请注意，
+| 当此功能启用时，一些助手将无法按预期工作，
+| 因为 CodeIgniter 主要设计用于使用基于段的 URL。
 |
 */
 $config['enable_query_strings'] = false;
@@ -190,137 +191,137 @@ $config['directory_trigger']    = 'd';
 
 /*
 |--------------------------------------------------------------------------
-| Allow $_GET array
+| Allow $_GET array   允许 $_GET 数组
 |--------------------------------------------------------------------------
 |
-| By default CodeIgniter enables access to the $_GET array.  If for some
-| reason you would like to disable it, set 'allow_get_array' to FALSE.
+| 默认情况下，CodeIgniter 允许访问 $_GET 数组。
+| 如果出于某种原因您想禁用它，请将“allow_get_array”设置为 FALSE。
 |
-| WARNING: This feature is DEPRECATED and currently available only
-|          for backwards compatibility purposes!
+| 警告：此功能已弃用，目前仅可用于
+| 向后兼容目的！
 |
 */
 $config['allow_get_array'] = true;
 
 /*
 |--------------------------------------------------------------------------
-| Error Logging Threshold
+| Error Logging Threshold   错误记录阈值
 |--------------------------------------------------------------------------
 |
-| You can enable error logging by setting a threshold over zero. The
-| threshold determines what gets logged. Threshold options are:
+| 您可以通过将阈值设置为大于零来启用错误日志记录。
+| 阈值决定了记录的内容。 阈值选项是：
 |
-|	0 = Disables logging, Error logging TURNED OFF
-|	1 = Error Messages (including PHP errors)
-|	2 = Debug Messages
-|	3 = Informational Messages
-|	4 = All Messages
+|      0 = 禁用日志记录，错误日志记录关闭
+|      1 = 错误消息（包括 PHP 错误）
+|      2 = 调试消息
+|      3 = 信息性消息
+|      4 = 所有消息
 |
-| You can also pass an array with threshold levels to show individual error types
+| 您还可以传递具有阈值级别的数组以显示各个错误类型
 |
-| 	array(2) = Debug Messages, without Error Messages
+| 	array(2) = 调试消息，没有错误消息
 |
-| For a live site you'll usually only enable Errors (1) to be logged otherwise
-| your log files will fill up very fast.
+| 对于实时站点，您通常只会启用要记录的错误 (1)，否则
+| 您的日志文件会很快填满。
 |
 */
 $config['log_threshold'] = 0;
 
 /*
 |--------------------------------------------------------------------------
-| Error Logging Directory Path
+| Error Logging Directory Path   错误记录目录路径
 |--------------------------------------------------------------------------
 |
-| Leave this BLANK unless you would like to set something other than the default
-| application/logs/ directory. Use a full server path with trailing slash.
+| 除非您想设置默认的 application/logs/ 目录以外的内容，否则请保留此空白。
+| 使用带有尾部斜杠的完整服务器路径。
 |
 */
 $config['log_path'] = '';
 
 /*
 |--------------------------------------------------------------------------
-| Log File Extension
+| Log File Extension   日志文件扩展名
 |--------------------------------------------------------------------------
 |
-| The default filename extension for log files. The default 'php' allows for
-| protecting the log files via basic scripting, when they are to be stored
-| under a publicly accessible directory.
+| 日志文件的默认文件扩展名。
+| 当日志文件存储在可公开访问的目录下时，
+| 默认的“php”允许通过基本脚本保护日志文件。
 |
-| Note: Leaving it blank will default to 'php'.
+| 注意：将其留空将默认为“php”。
 |
 */
 $config['log_file_extension'] = '';
 
 /*
 |--------------------------------------------------------------------------
-| Log File Permissions
+| Log File Permissions   日志文件权限
 |--------------------------------------------------------------------------
 |
-| The file system permissions to be applied on newly created log files.
+| 要应用于新创建的日志文件的文件系统权限。
 |
-| IMPORTANT: This MUST be an integer (no quotes) and you MUST use octal
-|            integer notation (i.e. 0700, 0644, etc.)
+| 重要提示：这必须是一个整数（无引号）并且您必须使用
+|         八进制整数表示法（即 0700、0644 等）
 */
 $config['log_file_permissions'] = 0644;
 
 /*
 |--------------------------------------------------------------------------
-| Date Format for Logs
+| Date Format for Logs 日志的日期格式
 |--------------------------------------------------------------------------
 |
-| Each item that is logged has an associated date. You can use PHP date
-| codes to set your own date formatting
+| 记录的每个项目都有一个关联的日期。
+| 您可以使用 PHP 日期代码来设置您自己的日期格式
 |
 */
 $config['log_date_format'] = 'Y-m-d H:i:s';
 
 /*
 |--------------------------------------------------------------------------
-| Error Views Directory Path
+| Error Views Directory Path 错误视图目录路径
 |--------------------------------------------------------------------------
 |
-| Leave this BLANK unless you would like to set something other than the default
-| application/views/errors/ directory.  Use a full server path with trailing slash.
+| 除非您想设置默认的 application/views/errors/ 目录以外的内容，否则请保留此空白。
+| 使用带有尾部斜杠的完整服务器路径。
 |
 */
 $config['error_views_path'] = '';
 
 /*
 |--------------------------------------------------------------------------
-| Cache Directory Path
+| Cache Directory Path   缓存目录路径
 |--------------------------------------------------------------------------
 |
-| Leave this BLANK unless you would like to set something other than the default
-| application/cache/ directory.  Use a full server path with trailing slash.
+| 除非您想设置默认的 application/cache/ 目录以外的内容，否则请保留此空白。
+| 使用带有尾部斜杠的完整服务器路径。
 |
 */
 $config['cache_path'] = '';
 
 /*
 |--------------------------------------------------------------------------
-| Cache Include Query String
+| Cache Include Query String 缓存包含查询字符串
 |--------------------------------------------------------------------------
 |
-| Whether to take the URL query string into consideration when generating
-| output cache files. Valid options are:
+| 生成输出缓存文件时是否考虑 URL 查询字符串。 
+| 有效选项是：
 |
-|	FALSE      = Disabled
-|	TRUE       = Enabled, take all query parameters into account.
-|	             Please be aware that this may result in numerous cache
-|	             files generated for the same page over and over again.
-|	array('q') = Enabled, but only take into account the specified list
-|	             of query parameters.
+|	FALSE      = Disabled(禁用)
+|	TRUE       = Enabled(启用)，考虑所有查询参数。
+|                    请注意，这可能会导致为同一页面一遍
+|                    又一遍地生成大量缓存文件。
+|	array('q') = Enabled, 但只考虑指定列表的
+|                    查询参数。
 |
 */
 $config['cache_query_string'] = false;
 
 /*
 |--------------------------------------------------------------------------
-| Encryption Key
+| Encryption Key 加密密钥
 |--------------------------------------------------------------------------
 |
-| If you use the Encryption class, you must set an encryption key.
-| See the user guide for more info.
+| 如果使用加密类，则必须设置加密密钥。
+| 有关详细信息，请参阅用户指南。
 |
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
@@ -329,53 +330,53 @@ $config['encryption_key'] = '';
 
 /*
 |--------------------------------------------------------------------------
-| Session Variables
+| Session Variables   会话变量
 |--------------------------------------------------------------------------
 |
 | 'sess_driver'
 |
-|	The storage driver to use: files, database, redis, memcached
+| 使用的存储驱动：文件、数据库、redis、memcached
 |
 | 'sess_cookie_name'
 |
-|	The session cookie name, must contain only [0-9a-z_-] characters
+| 会话 cookie 名称，只能包含 [0-9a-z_-] 个字符
 |
 | 'sess_expiration'
 |
-|	The number of SECONDS you want the session to last.
-|	Setting to 0 (zero) means expire when the browser is closed.
+| 您希望会话持续的秒数。
+| 设置为 0（零）表示在浏览器关闭时过期。
 |
 | 'sess_save_path'
 |
-|	The location to save sessions to, driver dependent.
+| 保存会话的位置，取决于驱动程序。
 |
-|	For the 'files' driver, it's a path to a writable directory.
-|	WARNING: Only absolute paths are supported!
+| 对于“文件”驱动程序，它是一个可写目录的路径。
+| 警告：仅支持绝对路径！
 |
-|	For the 'database' driver, it's a table name.
-|	Please read up the manual for the format with other session drivers.
+| 对于“数据库”驱动程序，它是一个表名。
+| 请阅读手册以了解其他会话驱动程序的格式。
 |
-|	IMPORTANT: You are REQUIRED to set a valid save path!
+| 重要提示：您需要设置有效的保存路径！
 |
 | 'sess_match_ip'
 |
-|	Whether to match the user's IP address when reading the session data.
+| 读取session数据时是否匹配用户IP地址。
 |
-|	WARNING: If you're using the database driver, don't forget to update
-|	         your session table's PRIMARY KEY when changing this setting.
+| 警告：如果您使用的是数据库驱动程序，请不要忘记更新
+| 更改此设置时会话表的主键 PRIMARY KEY。
 |
 | 'sess_time_to_update'
 |
-|	How many seconds between CI regenerating the session ID.
+| CI 重新生成会话 ID 之间的秒数。
 |
 | 'sess_regenerate_destroy'
 |
-|	Whether to destroy session data associated with the old session ID
-|	when auto-regenerating the session ID. When set to FALSE, the data
-|	will be later deleted by the garbage collector.
+| 是否销毁与旧会话 ID 关联的会话数据
+| 自动重新生成会话 ID 时。 当设置为 FALSE 时，数据
+| 稍后将被垃圾收集器删除。
 |
-| Other session cookie settings are shared with the rest of the application,
-| except for 'cookie_prefix' and 'cookie_httponly', which are ignored here.
+| 其他会话 cookie 设置与应用程序的其余部分共享，
+|
 |
 */
 $config['sess_driver']             = 'files';
@@ -388,17 +389,17 @@ $config['sess_regenerate_destroy'] = false;
 
 /*
 |--------------------------------------------------------------------------
-| Cookie Related Variables
+| Cookie Related Variables Cookie相关变量
 |--------------------------------------------------------------------------
 |
-| 'cookie_prefix'   = Set a cookie name prefix if you need to avoid collisions
-| 'cookie_domain'   = Set to .your-domain.com for site-wide cookies
-| 'cookie_path'     = Typically will be a forward slash
-| 'cookie_secure'   = Cookie will only be set if a secure HTTPS connection exists.
-| 'cookie_httponly' = Cookie will only be accessible via HTTP(S) (no javascript)
+| 'cookie_prefix'   = 如果需要避免冲突，请设置 cookie 名称前缀
+| 'cookie_domain'   = 为站点范围的 cookie 设置为 .your-domain.com
+| 'cookie_path'     = 通常是正斜杠
+| 'cookie_secure'   = 仅当存在安全 HTTPS 连接时才会设置 Cookie。
+| 'cookie_httponly' = Cookie 只能通过 HTTP(S) 访问（无 javascript）
 |
-| Note: These settings (with the exception of 'cookie_prefix' and
-|       'cookie_httponly') will also affect sessions.
+| 注意：这些设置（“cookie_prefix”和
+| 'cookie_httponly') 也会影响会话。
 |
 */
 $config['cookie_prefix']   = '';
@@ -409,45 +410,45 @@ $config['cookie_httponly'] = false;
 
 /*
 |--------------------------------------------------------------------------
-| Standardize newlines
+| Standardize newlines   标准化换行符
 |--------------------------------------------------------------------------
 |
-| Determines whether to standardize newline characters in input data,
-| meaning to replace \r\n, \r, \n occurrences with the PHP_EOL value.
+| 确定是否标准化输入数据中的换行符，
+| 意思是用 PHP_EOL 值替换出现的 \r\n、\r、\n。
 |
-| WARNING: This feature is DEPRECATED and currently available only
-|          for backwards compatibility purposes!
+| 警告：此功能已弃用，目前仅可用
+| 出于向后兼容的目的！
 |
 */
 $config['standardize_newlines'] = false;
 
 /*
 |--------------------------------------------------------------------------
-| Global XSS Filtering
+| Global XSS Filtering   全局 XSS 过滤
 |--------------------------------------------------------------------------
 |
-| Determines whether the XSS filter is always active when GET, POST or
-| COOKIE data is encountered
+| 确定 XSS 过滤器在 GET、POST 或
+| 遇到 COOKIE 数据
 |
-| WARNING: This feature is DEPRECATED and currently available only
-|          for backwards compatibility purposes!
+| 警告：此功能已弃用，目前仅可用
+| 出于向后兼容的目的！
 |
 */
 $config['global_xss_filtering'] = true;
 
 /*
 |--------------------------------------------------------------------------
-| Cross Site Request Forgery
+| Cross Site Request Forgery   跨站请求伪造
 |--------------------------------------------------------------------------
-| Enables a CSRF cookie token to be set. When set to TRUE, token will be
-| checked on a submitted form. If you are accepting user data, it is strongly
-| recommended CSRF protection be enabled.
+| 允许设置 CSRF cookie 令牌。 当设置为 TRUE 时，令牌将
+| 检查提交的表格。 如果您接受用户数据，则强烈
+| 建议启用 CSRF 保护。
 |
-| 'csrf_token_name' = The token name
-| 'csrf_cookie_name' = The cookie name
-| 'csrf_expire' = The number in seconds the token should expire.
-| 'csrf_regenerate' = Regenerate token on every submission
-| 'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
+| 'csrf_token_name'   = 令牌名称
+| 'csrf_cookie_name'  = cookie 名称
+| 'csrf_expire'       = 令牌应过期的秒数。
+| 'csrf_regenerate'   = 每次提交时重新生成令牌
+| 'csrf_exclude_uris' = 忽略 CSRF 检查的 URI 数组
 */
 $config['csrf_protection']   = true;
 $config['csrf_token_name']   = 'csrf_yesilcms_token';
@@ -458,67 +459,67 @@ $config['csrf_exclude_uris'] = array();
 
 /*
 |--------------------------------------------------------------------------
-| Output Compression
+| Output Compression   输出压缩
 |--------------------------------------------------------------------------
 |
-| Enables Gzip output compression for faster page loads.  When enabled,
-| the output class will test whether your server supports Gzip.
-| Even if it does, however, not all browsers support compression
-| so enable only if you are reasonably sure your visitors can handle it.
+| 启用 Gzip 输出压缩以加快页面加载速度。 启用时，
+| 输出类将测试您的服务器是否支持 Gzip。
+| 然而，即使支持，也并非所有浏览器都支持压缩
+| 因此，仅当您有理由确定您的访问者可以处理它时才启用。
 |
-| Only used if zlib.output_compression is turned off in your php.ini.
-| Please do not use it together with httpd-level output compression.
+| 仅在您的 php.ini 中关闭 zlib.output_compression 时使用。
+| 请不要将它与 httpd 级别的输出压缩一起使用。
 |
-| VERY IMPORTANT:  If you are getting a blank page when compression is enabled it
-| means you are prematurely outputting something to your browser. It could
-| even be a line of whitespace at the end of one of your scripts.  For
-| compression to work, nothing can be sent before the output buffer is called
-| by the output class.  Do not 'echo' any values with compression enabled.
+| 非常重要：如果启用压缩后出现空白页，则
+| 意味着你过早地输出一些东西到你的浏览器。 它可以
+| 甚至是您的一个脚本末尾的一行空格。 为了
+| 压缩工作，在调用输出缓冲区之前不能发送任何内容
+| 由输出类。 不要在启用压缩的情况下“回显”任何值。
 |
 */
 $config['compress_output'] = false;
 
 /*
 |--------------------------------------------------------------------------
-| Master Time Reference
+| Master Time Reference   主时间参考
 |--------------------------------------------------------------------------
 |
-| Options are 'local' or any PHP supported timezone. This preference tells
-| the system whether to use your server's local time as the master 'now'
-| reference, or convert it to the configured one timezone. See the 'date
-| helper' page of the user guide for information regarding date handling.
+| 选项是"local"本地”或任何 PHP 支持的时区。 这个偏好告诉
+| 系统是否使用你服务器的本地时间作为“现在”的主
+| 参考，或将其转换为配置的一个时区。 见日期
+| 用户指南的帮助页面，了解有关日期处理的信息。
 |
 $config['time_reference'] = 'local';
 */
 
 /*
 |--------------------------------------------------------------------------
-| Rewrite PHP Short Tags
+| Rewrite PHP Short Tags   重写 PHP 短标签
 |--------------------------------------------------------------------------
 |
-| If your PHP installation does not have short tag support enabled CI
-| can rewrite the tags on-the-fly, enabling you to utilize that syntax
-| in your view files.  Options are TRUE or FALSE (boolean)
+| 如果您的 PHP 安装没有启用短标签支持 CI
+| 可以即时重写标签，使您能够利用该语法
+| 在您的视图文件中。 选项为 TRUE 或 FALSE（布尔值）
 |
-| Note: You need to have eval() enabled for this to work.
+| 注意：您需要启用 eval() 才能使其工作。
 |
 */
 $config['rewrite_short_tags'] = false;
 
 /*
 |--------------------------------------------------------------------------
-| Reverse Proxy IPs
+| Reverse Proxy IPs   反向IP代理
 |--------------------------------------------------------------------------
 |
-| If your server is behind a reverse proxy, you must whitelist the proxy
-| IP addresses from which CodeIgniter should trust headers such as
-| HTTP_X_FORWARDED_FOR and HTTP_CLIENT_IP in order to properly identify
-| the visitor's IP address.
+| 如果您的服务器位于反向代理之后，您必须将代理列入白名单
+| CodeIgniter 应该信任来自的 IP 地址，例如
+| HTTP_X_FORWARDED_FOR 和 HTTP_CLIENT_IP 以便正确识别
+| 访问者的 IP 地址。
 |
-| You can use both an array or a comma-separated list of proxy addresses,
-| as well as specifying whole subnets. Here are a few examples:
+| 您可以使用数组或逗号分隔的代理地址列表，
+| 以及指定整个子网。 这里有一些例子：
 |
-| Comma-separated:	'10.0.1.200,192.168.5.0/24'
-| Array:		array('10.0.1.200', '192.168.5.0/24')
+| 逗号分隔：'10.0.1.200,192.168.5.0/24'
+| 数组：array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
