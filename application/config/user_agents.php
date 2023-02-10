@@ -4,12 +4,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------
-| USER AGENT TYPES
-| -------------------------------------------------------------------
-| This file contains four arrays of user agent data. It is used by the
-| User Agent Class to help identify browser, platform, robot, and
-| mobile device data. The array keys are used to identify the device
-| and the array values are used to set the actual name of the item.
+| USER AGENT TYPES 用户代理类型
+| ---------------------------------------------- ------------------
+| 该文件包含四个用户代理数据数组。
+| 用户代理类使用它来帮助识别浏览器、平台、机器人和移动设备数据。
+| 数组键用于识别设备
+| 数组值用于设置项目的实际名称。
 */
 $platforms = array(
     'windows nt 10.0' => 'Windows 10',
@@ -57,14 +57,14 @@ $platforms = array(
 );
 
 
-// The order of this array should NOT be changed. Many browsers return
-// multiple browser types so we want to identify the sub-type first.
+// The order of this array should NOT be changed. Many browsers return // 不应更改此数组的顺序。
+// multiple browser types so we want to identify the sub-type first. // 许多浏览器返回多种浏览器类型，所以我们要先识别子类型。
 $browsers = array(
     'OPR'               => 'Opera',
     'Flock'             => 'Flock',
     'Edge'              => 'Edge',
     'Chrome'            => 'Chrome',
-    // Opera 10+ always reports Opera/9.80 and appends Version/<real version> to the user agent string
+    // Opera 10+ always reports Opera/9.80 and appends Version/<real version> to the user agent string// Opera 10+ 始终报告 Opera/9.80 并将版本 /<真实版本> 附加到用户代理字符串
     'Opera.*?Version'   => 'Opera',
     'Opera'             => 'Opera',
     'MSIE'              => 'Internet Explorer',
@@ -92,7 +92,7 @@ $browsers = array(
 );
 
 $mobiles = array(
-    // legacy array, old values commented out
+    // legacy array, old values commented out // 遗留数组，旧值被注释掉
     'mobileexplorer'       => 'Mobile Explorer',
 //  'openwave'			=> 'Open Wave',
 //	'opera mini'		=> 'Opera Mini',
@@ -108,7 +108,7 @@ $mobiles = array(
 //	'blackberry'		=> 'BlackBerry',
 //	'motorola'			=> 'Motorola'
 
-    // Phones and Manufacturers
+    // Phones and Manufacturers // 电话和制造商
     'motorola'             => 'Motorola',
     'nokia'                => 'Nokia',
     'nexus'                => 'Nexus',
@@ -159,7 +159,7 @@ $mobiles = array(
     'vivo'                 => 'Vivo',
     'infinix'              => 'Infinix',
 
-    // Operating Systems
+    // Operating Systems // 操作系统
     'android'              => 'Android',
     'symbian'              => 'Symbian',
     'SymbianOS'            => 'SymbianOS',
@@ -167,7 +167,7 @@ $mobiles = array(
     'series60'             => 'Symbian S60',
     'windows ce'           => 'Windows CE',
 
-    // Browsers
+    // Browsers // 浏览器
     'obigo'                => 'Obigo',
     'netfront'             => 'Netfront Browser',
     'openwave'             => 'Openwave Browser',
@@ -177,7 +177,7 @@ $mobiles = array(
     'opera mobi'           => 'Opera Mobile',
     'fennec'               => 'Firefox Mobile',
 
-    // Other
+    // Other // 其他
     'digital paths'        => 'Digital Paths',
     'avantgo'              => 'AvantGo',
     'xiino'                => 'Xiino',
@@ -186,7 +186,7 @@ $mobiles = array(
     'docomo'               => 'NTT DoCoMo',
     'o2'                   => 'O2',
 
-    // Fallback
+    // Fallback// 倒推
     'mobile'               => 'Generic Mobile',
     'wireless'             => 'Generic Mobile',
     'j2me'                 => 'Generic Mobile',
@@ -198,7 +198,7 @@ $mobiles = array(
     'cellphone'            => 'Generic Mobile'
 );
 
-// There are hundreds of bots but these are the most common.
+// There are hundreds of bots but these are the most common.// 有数百种机器人，但这些是最常见的。
 $robots = array(
     'googlebot'            => 'Googlebot',
     'msnbot'               => 'MSNBot',
