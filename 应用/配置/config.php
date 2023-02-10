@@ -95,22 +95,22 @@ $config['charset'] = 'UTF-8';
 
 /*
 |--------------------------------------------------------------------------
-| Enable/Disable System Hooks
+| Enable/Disable System Hooks 启用/禁用系统Hooks
 |--------------------------------------------------------------------------
 |
-| If you would like to use the 'hooks' feature you must enable it by
-| setting this variable to TRUE (boolean).  See the user guide for details.
+| 如果您想使用"hooks"功能，您必须通过将此变量设置为TRUE（boolean布尔值）来启用它。
+| 有关详细信息，请参阅用户指南。
 |
 */
 $config['enable_hooks'] = true;
 
 /*
 |--------------------------------------------------------------------------
-| Class Extension Prefix
+| Class Extension Prefix   类扩展前缀
 |--------------------------------------------------------------------------
 |
-| This item allows you to set the filename/classname prefix when extending
-| native libraries.  For more information please see the user guide:
+| 此项允许您在扩展本地库时设置文件名/类名前缀。  
+| 有关详细信息，请参阅用户指南：
 |
 | https://codeigniter.com/user_guide/general/core_classes.html
 | https://codeigniter.com/user_guide/general/creating_libraries.html
@@ -120,23 +120,22 @@ $config['subclass_prefix'] = 'MY_';
 
 /*
 |--------------------------------------------------------------------------
-| Composer auto-loading
+| Composer auto-loading   Composer自动加载
 |--------------------------------------------------------------------------
 |
-| Enabling this setting will tell CodeIgniter to look for a Composer
-| package auto-loader script in application/vendor/autoload.php.
+| 启用此设置将告诉 CodeIgniter 
+| 在 application/vendor/autoload.php 中查找 Composer 包自动加载脚本。
 |
 |	$config['composer_autoload'] = TRUE;
 |
-| Or if you have your vendor/ directory located somewhere else, you
-| can opt to set a specific path as well:
+| 或者，如果您的 vendor/ 目录位于其他位置，您也可以选择设置特定路径：
 |
 |	$config['composer_autoload'] = '/path/to/vendor/autoload.php';
 |
-| For more information about Composer, please visit http://getcomposer.org/
+| 有关 Composer 的更多信息，请访问 http://getcomposer.org/
 |
-| Note: This will NOT disable or override the CodeIgniter-specific
-|	autoloading (application/config/autoload.php)
+| 注意：这不会禁用或覆盖 CodeIgniter 特定的
+|      自动加载 (application/config/autoload.php)
 */
 $config['composer_autoload'] = FCPATH . 'vendor/autoload.php';
 
