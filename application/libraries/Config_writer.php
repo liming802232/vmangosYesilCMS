@@ -2,10 +2,10 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 /**
- * Get instance of the config writer
+ * Get instance of the config writer * 获取配置编写器的实例
  *
- * @param  string  $file           Absolute path to config file , default to the main config file
- * @param  string  $variable_name  The name of varible(array) that holds items
+ * @param  string  $file             * 配置文件的绝对路径，默认为主配置文件
+ * @param  string  $variable_name    * 保存项目的变量（数组）的名称
  *
  * @return \Array_Config_Writer
  */
