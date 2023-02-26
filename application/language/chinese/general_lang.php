@@ -176,7 +176,7 @@ $lang['footer_rights'] = '版权所有';
 
 /*Page 404 Lang*/
 $lang['page_404_title']       = '404页面未找到';
-$lang['page_404_description'] = ''您访问的页面不存在';
+$lang['page_404_description'] = '您访问的页面不存在';
 
 /*Panel Lang*/
 $lang['panel_acc_rank']           = '账户等级';
