@@ -6,23 +6,23 @@ class MY_Cart extends CI_Cart
 {
     public function __construct($params = array())
     {
-        // Set the super object to a local variable for use later
+        // 将超级对象设置为局部变量以备后用
         $this->CI =& get_instance();
 
-        // Are any config settings being passed manually?  If so, set them
+        // 是否手动传递任何配置设置？  如果是，请设置它们
         $config = is_array($params) ? $params : array();
 
-        // Load the Sessions class
+        // Load the Sessions class *加载会话类
         $this->CI->load->driver('session', $config);
 
-        // Grab the shopping cart array from the session table
+        // 从会话表中获取购物车数组
         $this->_cart_contents = $this->CI->session->userdata('cart_contents');
         if ($this->_cart_contents === null) {
-            // No cart exists so we'll set some base values
+            // 不存在购物车，因此我们将设置一些基本值
             $this->_cart_contents = array('cart_total' => 0, 'total_items' => 0, 'total_dp' => 0, 'total_vp' => 0, 'count_items' => 0, 'valid_items' => 0);
         }
 
-        log_message('info', 'Cart Class Initialized');
+        log_message('信息'，'购物车类初始化');
     }
 
     // --------------------------------------------------------------------
@@ -36,88 +36,88 @@ class MY_Cart extends CI_Cart
      */
     protected function _insert($items = array())
     {
-        // Was any cart data passed? No? Bah...
+        // 是否传递了任何购物车数据？ 不知道？ 啊呸...
         if (! is_array($items) or count($items) === 0) {
-            log_message('error', 'The insert method must be passed an array containing data.');
+            log_message('错误', 'insert 方法必须传递一个包含数据的数组。');
 
             return false;
         }
 
         // --------------------------------------------------------------------
 
-        // Does the $items array contain an id, quantity, price, name, dp and vp?  These are required
+        // $items 数组是否包含 id、quantity数量、price价格、name名称、dp 和 vp？ 这些是必需的
         if (! isset($items['id'], $items['qty'], $items['price'], $items['name'], $items['category'], $items['dp'], $items['vp'], $items['guid'])) {
-            log_message('error', 'The cart array must contain a product ID, quantity, price, name, category, dp, vp and guid.');
+            log_message('错误', '购物车数组必须包含 product产品ID、quantity数量、price价格、name名称、category类别、dp、vp 和 guid。');
 
             return false;
         }
 
         // --------------------------------------------------------------------
 
-        // Prep the quantity. It can only be a number.  Duh... also trim any leading zeros
+        // 准备数量。 它只能是一个数字。 呃......也修剪任何前导零
         $items['qty'] = (float)$items['qty'];
 
-        // If the quantity is zero or blank there's nothing for us to do
+        // 如果数量为零或空白，我们就无能为力
         if ($items['qty'] == 0) {
             return false;
         }
 
         // --------------------------------------------------------------------
 
-        // Validate the product ID. It can only be alpha-numeric, dashes, underscores or periods
-        // Not totally sure we should impose this rule, but it seems prudent to standardize IDs.
-        // Note: These can be user-specified by setting the $this->product_id_rules variable.
+        // 验证产品 ID。 它只能是 alpha-numeric字母数字、dashes破折号、underscores下划线或 periods句点
+        // 不完全确定我们是否应该强加这条规则，但标准化 ID 似乎是谨慎的做法。
+        // 注意：这些可以由用户通过设置 $this->product_id_rules 变量来指定。
         if (! preg_match('/^[' . $this->product_id_rules . ']+$/i', $items['id'])) {
-            log_message('error', 'Invalid product ID.  The product ID can only contain alpha-numeric characters, dashes, and underscores');
+            log_message('错误', '产品 ID 无效。 产品 ID 只能包含字母数字字符、破折号和下划线');
 
             return false;
         }
 
         // --------------------------------------------------------------------
 
-        // Validate the product name. It can only be alpha-numeric, dashes, underscores, colons or periods.
-        // Note: These can be user-specified by setting the $this->product_name_rules variable.
+        // 验证产品名称。 它只能是 alpha-numeric字母数字、dashes破折号、underscores下划线、colons冒号或 periods句号。
+        // 注意：这些可以通过设置 $this->product_name_rules 变量由用户指定。
         if ($this->product_name_safe && ! preg_match('/^[' . $this->product_name_rules . ']+$/i' . (UTF8_ENABLED ? 'u' : ''), $items['name'])) {
-            log_message('error', 'An invalid name was submitted as the product name: ' . $items['name'] . ' The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces');
+            log_message('错误', '提交了一个无效名称作为产品名称： ' . $items['name'] . ' 该名称只能包含 alpha-numeric字母数字、characters字符、dashes短划线、underscores下划线、colons冒号和spaces空格 ');
 
             return false;
         }
 
         // --------------------------------------------------------------------
 
-        // Prep the price, dp and vp. Remove leading zeros and anything that isn't a number or decimal point.
+        // 准备价格、dp 和 vp。 删除前导零和任何不是数字或decimal point小数点的内容。
         $items['price']    = (float)$items['price'];
         $items['category'] = (float)$items['category'];
         $items['dp']       = (float)$items['dp'];
         $items['vp']       = (float)$items['vp'];
         $items['guid']     = (float)$items['guid'];
 
-        // We now need to create a unique identifier for the item being inserted into the cart.
-        // Every time something is added to the cart it is stored in the master cart array.
-        // Each row in the cart array, however, must have a unique index that identifies not only
-        // a particular product, but makes it possible to store identical products with different options.
-        // For example, what if someone buys two identical t-shirts (same product ID), but in
-        // different sizes?  The product ID (and other attributes, like the name) will be identical for
-        // both sizes because it's the same shirt. The only difference will be the size.
-        // Internally, we need to treat identical submissions, but with different options, as a unique product.
-        // Our solution is to convert the options array to a string and MD5 it along with the product ID.
-        // This becomes the unique "row ID"
+        // 我们现在需要为要插入购物车的商品创建一个唯一标识符。
+        // 每次将东西添加到购物车时，它都会存储在主购物车数组中。
+        // 然而，购物车数组中的每一行都必须有一个唯一的索引，该索引不仅标识
+        // 一个特定的产品，但可以存储具有不同选项的相同产品。
+        // 例如，如果有人买了两件相同的 T 恤（相同的产品 ID），但在
+        // 大小不同？ 产品 ID（和其他属性，如名称）对于
+        // 两种尺寸，因为它是同一件衬衫。 唯一的区别是尺寸。
+        // 在内部，我们需要将相同的提交但具有不同的选项视为独特的产品。
+        // 我们的解决方案是将选项数组转换为字符串并将其与产品 ID 一起进行 MD5。
+        // 这成为唯一的“行 ID”
         if (isset($items['options']) && count($items['options']) > 0) {
             $rowid = md5($items['id'] . serialize($items['options']));
         } else {
-            // No options were submitted so we simply MD5 the product ID.
-            // Technically, we don't need to MD5 the ID in this case, but it makes
-            // sense to standardize the format of array indexes for both conditions
+            // 没有提交任何选项，所以我们简单地对产品 ID 进行 MD5 运算。
+            // 从技术上讲，在这种情况下我们不需要对 ID 进行 MD5，但它使得
+            // 对两种情况下数组索引的格式进行标准化
             $rowid = md5($items['id']);
         }
 
         // --------------------------------------------------------------------
 
-        // Now that we have our unique "row ID", we'll add our cart items to the master array
-        // grab quantity if it's already there and add it on
+        // 现在我们有了唯一的“行 ID”，我们将把我们的购物车项目添加到主数组
+        // 抓取数量（如果已经存在）并将其添加
         $old_quantity = isset($this->_cart_contents[$rowid]['qty']) ? (int)$this->_cart_contents[$rowid]['qty'] : 0;
 
-        // Re-create the entry, just to make sure our index contains only the data from this submission
+        // 重新创建条目，只是为了确保我们的索引只包含这次提交的数据
         $items['rowid']               = $rowid;
         $items['qty']                 += $old_quantity;
         $this->_cart_contents[$rowid] = $items;
@@ -128,12 +128,12 @@ class MY_Cart extends CI_Cart
     // --------------------------------------------------------------------
 
     /**
-     * Update the cart
+     * 更新购物车
      *
-     * This function permits changing item properties.
-     * Typically it is called from the "view cart" page if a user makes
-     * changes to the quantity before checkout. That array must contain the
-     * rowid and quantity for each item.
+     * 此功能允许更改项目属性。
+     * 通常它是从"view–cart查看购物车"页面调用的，如果用户进行
+     * 结帐前更改数量。 该数组必须包含
+     * 每个商品的 行ID和数量。
      *
      * @param  array
      *
@@ -141,16 +141,16 @@ class MY_Cart extends CI_Cart
      */
     protected function _update($items = array())
     {
-        // Without these array indexes there is nothing we can do
+        // 没有这些数组索引，我们无能为力
         if (! isset($items['rowid'], $this->_cart_contents[$items['rowid']])) {
             return false;
         }
 
-        // Prep the quantity
+        // 准备数量
         if (isset($items['qty'])) {
             $items['qty'] = (float)$items['qty'];
-            // Is the quantity zero?  If so we will remove the item from the cart.
-            // If the quantity is greater than zero we are updating
+            // 数量是否为零？ 如果是，我们将从购物车中移除该商品。
+            // 如果数量大于零我们更新
             if ($items['qty'] == 0) {
                 unset($this->_cart_contents[$items['rowid']]);
 
@@ -158,9 +158,9 @@ class MY_Cart extends CI_Cart
             }
         }
 
-        // find updatable keys
+        // 查找可更新密钥
         $keys = array_intersect(array_keys($this->_cart_contents[$items['rowid']]), array_keys($items));
-        // if a price was passed, make sure it contains valid data
+        // 如果价格通过，确保它包含有效数据
         if (isset($items['price'])) {
             $items['price'] = (float)$items['price'];
         }
@@ -181,7 +181,7 @@ class MY_Cart extends CI_Cart
             $items['guid'] = (float)$items['guid'];
         }
 
-        // product id & name shouldn't be changed
+        // 产品ID 和名称不应该被改变
         foreach (array_diff($keys, array('id', 'name')) as $key) {
             $this->_cart_contents[$items['rowid']][$key] = $items[$key];
         }
@@ -192,16 +192,16 @@ class MY_Cart extends CI_Cart
     // --------------------------------------------------------------------
 
     /**
-     * Save the cart array to the session DB
+     * Save the cart array to the session DB * 保存购物车数组到会话数据库
      *
      * @return    bool
      */
     protected function _save_cart()
     {
-        // Let's add up the individual prices and set the cart sub-total
+        // 让我们将各个价格相加并设置购物车小计
         $this->_cart_contents['total_items'] = $this->_cart_contents['cart_total'] = $this->_cart_contents['total_dp'] = $this->_cart_contents['total_vp'] = $this->_cart_contents['count_items'] = $this->_cart_contents['valid_items'] = 0;
         foreach ($this->_cart_contents as $key => $val) {
-            // We make sure the array contains the proper indexes
+            // 我们确保数组包含正确的索引
             if (! is_array($val) or ! isset($val['price'], $val['qty']) or ! isset($val['dp'], $val['qty']) or ! isset($val['vp'], $val['qty']) or ! isset($val['guid']) or ! isset($val['category'])) {
                 continue;
             }
@@ -215,26 +215,26 @@ class MY_Cart extends CI_Cart
             $this->_cart_contents[$key]['subtotal'] = ($this->_cart_contents[$key]['price'] * $this->_cart_contents[$key]['qty']);
         }
 
-        // Is our cart empty? If so we delete it from the session
+        // 我们的购物车是空的吗？ 如果是这样我们从会话中删除它
         if (count($this->_cart_contents) <= 2) {
             $this->CI->session->unset_userdata('cart_contents');
 
-            // Nothing more to do... coffee time!
+            // 没什么可做的了……咖啡时间！
             return false;
         }
 
-        // If we made it this far it means that our cart has data.
-        // Let's pass it to the Session class so it can be stored
+        // 如果我们做到了这一步，就意味着我们的购物车有数据。
+        // 让我们把它传递给 Session 类，这样它就可以被存储
         $this->CI->session->set_userdata(array('cart_contents' => $this->_cart_contents));
 
-        // Woot!
+        // 哇哦!
         return true;
     }
 
     // --------------------------------------------------------------------
 
     /**
-     * Total DP
+     * Total DP *DP总计
      *
      * @return    int
      */
@@ -246,7 +246,7 @@ class MY_Cart extends CI_Cart
     // --------------------------------------------------------------------
 
     /**
-     * Total VP
+     * Total VP *VP总计
      *
      * @return    int
      */
@@ -258,7 +258,7 @@ class MY_Cart extends CI_Cart
     // --------------------------------------------------------------------
 
     /**
-     * Count Items on cart
+     * Count Items on cart *计算购物车上的物品
      *
      * @return    int
      */
@@ -270,7 +270,7 @@ class MY_Cart extends CI_Cart
     // --------------------------------------------------------------------
 
     /**
-     * Valid guid on items
+     * Valid guid on items * 物品的有效指南
      *
      * @return    int
      */
@@ -282,9 +282,9 @@ class MY_Cart extends CI_Cart
     // --------------------------------------------------------------------
 
     /**
-     * Cart Contents
+     * Cart Contents * 购物车内容
      *
-     * Returns the entire cart array
+     * Returns the entire cart array * 返回整个购物车数组
      *
      * @param  bool
      *
@@ -292,10 +292,10 @@ class MY_Cart extends CI_Cart
      */
     public function contents($newest_first = false)
     {
-        // do we want the newest first?
+        // 我们是否首先要最新的？
         $cart = ($newest_first) ? array_reverse($this->_cart_contents) : $this->_cart_contents;
 
-        // Remove these so they don't create a problem when showing the cart table
+        // 删除这些，这样它们在显示购物车表时就不会产生问题
         unset($cart['total_items']);
         unset($cart['cart_total']);
         unset($cart['total_dp']);
@@ -309,9 +309,9 @@ class MY_Cart extends CI_Cart
     // --------------------------------------------------------------------
 
     /**
-     * Get cart item
+     * Get cart item * 获取购物车商品
      *
-     * Returns the details of a specific item in the cart
+     * Returns the details of a specific item in the cart * 返回购物车中特定商品的详细信息
      *
      * @param  string  $row_id
      *
@@ -327,9 +327,9 @@ class MY_Cart extends CI_Cart
     // --------------------------------------------------------------------
 
     /**
-     * Destroy the cart
+     * Destroy the cart 销毁购物车
      *
-     * Empties the cart and kills the session
+     * Empties the cart and kills the session *清空购物车并终止会话
      *
      * @return    void
      */

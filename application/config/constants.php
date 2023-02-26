@@ -4,27 +4,27 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 |--------------------------------------------------------------------------
-| Display Debug backtrace
-|--------------------------------------------------------------------------
+| Display Debug backtrace   显示调试回溯
+|------------------------------------------------ --------------------------
 |
-| If set to TRUE, a backtrace will be displayed along with php errors. If
-| error_reporting is disabled, the backtrace will not display, regardless
-| of this setting
+| 如果设置为 TRUE，回溯将与 php 错误一起显示。 如果
+| error_reporting 被禁用，回溯将不会显示，无论这里
+| 如何设置
 |
 */
 defined('SHOW_DEBUG_BACKTRACE') or define('SHOW_DEBUG_BACKTRACE', true);
 
 /*
 |--------------------------------------------------------------------------
-| File and Directory Modes
-|--------------------------------------------------------------------------
+| File and Directory Modes   文件和目录模式
+|------------------------------------------------ --------------------------
 |
-| These prefs are used when checking and setting modes when working
-| with the file system.  The defaults are fine on servers with proper
-| security, but you may wish (or even need) to change the values in
-| certain environments (Apache running a separate process for each
-| user, PHP under CGI with Apache suEXEC, etc.).  Octal values should
-| always be used to set the mode correctly.
+| 这些首选项用于在使用文件系统时检查和设置模式。
+| 在具有适当安全性的服务器上，默认值就很好用，
+| 但您可能希望（甚至需要）更改某些环境中的值
+| （Apache 为每个运行一个单独的进程
+| 用户、CGI 下的 PHP 和 Apache suEXEC 等）。 
+| 应始终使用八进制值来正确设置模式。
 |
 */
 defined('FILE_READ_MODE') or define('FILE_READ_MODE', 0644);
@@ -34,10 +34,10 @@ defined('DIR_WRITE_MODE') or define('DIR_WRITE_MODE', 0755);
 
 /*
 |--------------------------------------------------------------------------
-| File Stream Modes
-|--------------------------------------------------------------------------
+| File Stream Modes   文件流模式
+|------------------------------------------------ --------------------------
 |
-| These modes are used when working with fopen()/popen()
+| 这些模式在使用 fopen()/popen() 时使用
 |
 */
 defined('FOPEN_READ') or define('FOPEN_READ', 'rb');
@@ -51,27 +51,26 @@ defined('FOPEN_READ_WRITE_CREATE_STRICT') or define('FOPEN_READ_WRITE_CREATE_STR
 
 /*
 |--------------------------------------------------------------------------
-| Exit Status Codes
-|--------------------------------------------------------------------------
+| Exit Status Codes 退出状态代码
+|------------------------------------------------ --------------------------
 |
-| Used to indicate the conditions under which the script is exit()ing.
-| While there is no universal standard for error codes, there are some
-| broad conventions.  Three such conventions are mentioned below, for
-| those who wish to make use of them.  The CodeIgniter defaults were
-| chosen for the least overlap with these conventions, while still
-| leaving room for others to be defined in future versions and user
-| applications.
+| 用于指示脚本退出（）的条件。
+| 虽然没有错误代码的通用标准，但有一些广泛的约定。
+| 下面提到了三个这样的约定，供那些希望使用它们的人使用。
+| 选择 CodeIgniter 默认值是为了与这些约定的重叠最少，
+| 同时仍然为其他人在未来的版本中定义留下空间
+| 和用户应用程序。
 |
-| The three main conventions used for determining exit status codes
-| are as follows:
+| 用于确定退出状态代码的三个主要约定
+| 如下面所述：
 |
-|    Standard C/C++ Library (stdlibc):
-|       http://www.gnu.org/software/libc/manual/html_node/Exit-Status.html
-|       (This link also contains other GNU-specific conventions)
-|    BSD sysexits.h:
-|       http://www.gsp.com/cgi-bin/man.cgi?section=3&topic=sysexits
-|    Bash scripting:
-|       http://tldp.org/LDP/abs/html/exitcodes.html
+| 标准 C/C++ 库 (stdlibc)：
+| http://www.gnu.org/software/libc/manual/html_node/Exit-Status.html
+| （此链接还包含其他 GNU 特定约定）
+| BSD sysexits.h:
+| http://www.gsp.com/cgi-bin/man.cgi?section=3&topic=sysexits
+| Bash 脚本：
+| http://tldp.org/LDP/abs/html/exitcodes.html
 |
 */
 defined('EXIT_SUCCESS') or define('EXIT_SUCCESS', 0); // no errors
@@ -88,10 +87,10 @@ defined('EXIT__AUTO_MAX') or define('EXIT__AUTO_MAX', 125); // highest automatic
 
 /*
 |--------------------------------------------------------------------------
-| Header Image Names
-|--------------------------------------------------------------------------
+| Header Image Names 标题图像名称
+|------------------------------------------------ --------------------------
 |
-| Image names without extension for randomized headers
+| 不带扩展名的图像名称用于随机标头
 |
 */
 const HEADER_IMAGES = array(1, 2, 3, 4);

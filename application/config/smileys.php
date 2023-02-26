@@ -4,13 +4,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------
-| SMILEYS
-| -------------------------------------------------------------------
-| This file contains an array of smileys for use with the emoticon helper.
-| Individual images can be used to replace multiple smileys.  For example:
-| :-) and :) use the same image replacement.
+| SMILEYS 笑脸
+| ---------------------------------------------- ------------------
+| 此文件包含一组用于表情符号助手的笑脸符号。
+| 单个图像可用于替换多个笑脸。 例如：
+| :-) 和 :) 使用相同的图像替换。
 |
-| Please see user guide for more info:
+| 请参阅用户指南了解更多信息：
 | https://codeigniter.com/user_guide/helpers/smiley_helper.html
 |
 */

@@ -4,74 +4,74 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
  *
- * Parser Enabled
- *
- * Should the Parser library be used for the entire page?
- *
- * Can be overridden with $this->template->enable_parser(TRUE/FALSE);
- *
- * Default: TRUE
+ * Parser Enabled *解析器启用
+*
+* 解析器库是否应该用于整个页面吗？
+*
+* 可以用 $this->template->enable_parser(TRUE/FALSE) 覆盖；
+*
+* 默认值：TRUE
  *
  */
 $config['parser_enabled'] = false;
 
 /**
  *
- * Parser Enabled for Body
+ * Parser Enabled for Body * 为正文启用解析器
  *
- * If the parser is enabled, do you want it to parse the body or not?
+ * 如果启用了解析器，你是否希望它解析正文？
  *
- * Can be overridden with $this->template->enable_parser(TRUE/FALSE);
+ * 可以用 $this->template->enable_parser(TRUE/FALSE) 覆盖；
  *
- * Default: FALSE
+ * 默认值： FALSE
  *
  */
 $config['parser_body_enabled'] = false;
 
 /**
  *
- * Title Separator
- *
- * What string should be used to separate title segments sent via $this->template->title('Foo', 'Bar');
- *
- * Default: ' | '
+ * Title Separator * 标题分隔符
+*
+* 应该使用什么字符串来分隔通过 $this->template->title('Foo', 'Bar') 发送的标题段；
+*
+* 默认： ' | '
  *
  */
 $config['title_separator'] = ' | ';
 
 /**
  *
- * Layout
- *
- * Which layout file should be used? When combined with theme it will be a layout file in that theme
- *
- * Change to 'main' to get /application/views/layouts/main.php
- *
- * Default: 'default'
+ * Layout * 布局
+*
+* 应该使用哪个布局文件？ 当与主题结合时，它将成为该主题中的布局文件
+*
+* 更改为 'main' 以获取 /application/views/layouts/main.php
+*
+* 默认： 'default'
  *
  */
 $config['layout'] = 'layout';
 
 /**
  *
- * Theme
- *
- * Which theme to use by default?
- *
- * Can be overriden with $this->template->set_theme('foo');
- *
- * Default: ''
+ * Theme * 主题
+*
+* 默认使用哪个主题？
+*
+* 可以用 $this->template->set_theme('foo'); 覆盖
+*
+* 默认： ''
  *
  */
 $config['theme'] = config_item('theme_name');
 
 /**
  *
- * Theme Locations
- *
- * Where should we expect to see themes?
- *
- * Default: array(APPPATH.'themes/' => '../themes/')
+ * Theme Locations *主题位置
+*
+* 我们应该在哪里看到主题？
+*
+* 默认：array(APPPATH.'themes/' => '../themes/')
  *
  */
 $config['theme_locations'] = array(

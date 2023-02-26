@@ -4,11 +4,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
-| Memcached settings
-| -------------------------------------------------------------------------
-| Your Memcached servers can be specified below.
+| Memcached settings Memcached设置
+| ---------------------------------------------- ----------------------
+| 您的 Memcached 服务器可以在下面指定。
 |
-|   See: https://codeigniter.com/user_guide/libraries/caching.html#memcached
+| 请参阅： https://codeigniter.com/user_guide/libraries/caching.html#memcached
 |
 */
 $config = [

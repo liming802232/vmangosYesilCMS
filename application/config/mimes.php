@@ -4,10 +4,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------
-| MIME TYPES
-| -------------------------------------------------------------------
-| This file contains an array of mime types. It is used by the
-| Upload class to help identify allowed file types.
+| MIME TYPES   MIME 类型
+| ---------------------------------------------- ------------------
+| 该文件包含一组 MIME 类型。 它由
+| 上传类以帮助识别允许的文件类型。
 |
 */
 
