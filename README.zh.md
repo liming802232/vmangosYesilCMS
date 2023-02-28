@@ -1,30 +1,31 @@
 ![YesilCMS Logo](https://i.imgur.com/Vj0GNLV.png)
 # YesilCMS &middot; [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/yesilmen-vm/YesilCMS/pulls) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/yesilmen-vm/YesilCMS/blob/master/LICENSE)
 
-Read in: [英语 :gb:](README.md) | [简中 :zh:](README_zh.md)
-**YesilCMS** is based on [BlizzCMS](https://github.com/WoW-CMS/BlizzCMS) and specifically adapted for [VMaNGOS Core](https://github.com/vmangos/core) and includes new features and many bug fixes.
+Read in: [英语 :gb:](README.md) | [简中 :cn:](README_zh.md)
 
-You can check out the demo on through here; [YesilCMS Demo](https://yesilcms.page).
+**YesilcmS** 基于 [BlizzCMS](https://github.com/WoW-CMS/BlizzCMS) 专门针对 [VMaNGOS Core](https://github.com/vmangos/core) 进行了调整，包括新功能和许多错误修复。
 
-## Features
+您可以通过此处查看演示; [YesilcmS 演示](https://yesilcms.page).
 
-In addition to the existing features of BlizzCMS, some of the added features are as follows;
+## 特性
 
-- **Complete VMaNGOS compability.**
-- New installation script that directs the user based on OS/Environment.
-- Tweaks to work on multiple Web Servers including Apache/Nginx/IIS.
-- **Redis caching** for *nix operating systems.
-- Advanced static caching. (optional, have some side-effects for logged in users)
-- Functioning [reCAPTCHA](https://www.google.com/recaptcha/admin/create).
-- New lightweight dark theme.
-- Brand new **built-in database viewer** *(WIP(\*))*.
-  - Progressive database search (1.2 to 1.12)
-  - Item search with all related data.
-  - Spell search with all related data and dev-required data.
-  - Object, Creature and Quest page is in WIP state. (*)
-- Brand new **customizable armory.**
-  - Base character info
-  - 3D Model Viewer (Fast: Uses plain `displayID`, Detailed: Converts old `displayID` to Classic `displayID` using Classic's DBC. You can also create a separate table instead of remote call.)
+除了 BlizzCMS 的现有功能外，新增功能如下;
+
+- **完整的 VMaNGOS 兼容性。**
+- 新的安装脚本，根据操作系统/环境指导用户。
+- 调整以在多个Web服务器上工作，包括Apache/Nginx/IIS。
+- 适用于 *nix 操作系统的 **Redis 缓存**。
+- 高级静态缓存。 (可选，对登录用户有一些副作用)
+- 功能验证码 [reCAPTCHA](https://www.google.com/recaptcha/admin/create).
+- 新的轻量级深色主题。
+- 全新的**内置数据库查看器** *(WIP(\*))*.
+  - 渐进式数据库搜索 (1.2 到 1.12)
+  - 使用所有相关数据进行项目搜索。
+  - 使用所有相关数据和开发所需数据进行法术搜索。
+  - 对象、生物和任务页面处于 WIP 状态。 (*)
+- 全新的 **可定制的军械库。**
+  - 基本角色信息
+  - 3D模型查看器 (Fast: Uses plain `displayID`, Detailed: Converts old `displayID` to Classic `displayID` using Classic's DBC. You can also create a separate table instead of remote call.)
   - Dynamic Base Stats
   - Progressive Armory (1.2 to 1.12 can be selected by user as well)
   - Primary & Secondary Professions
