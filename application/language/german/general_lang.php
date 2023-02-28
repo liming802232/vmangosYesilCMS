@@ -98,9 +98,14 @@ $lang['placeholder_lock']              = 'Lock';
 $lang['placeholder_subject']           = 'Thema';
 
 /*Table header Lang*/
+$lang['table_header_cname']            = 'Character Name';
+$lang['table_header_gname']            = 'Guild Name';
 $lang['table_header_name']             = 'Name';
 $lang['table_header_faction']          = 'Fraktion';
 $lang['table_header_total_kills']      = 'Insgesamte Kills';
+$lang['table_header_total_honor']      = 'Total Honor';
+$lang['table_header_current_rank']     = 'Current Rank';
+$lang['table_header_kills']            = 'Kills';
 $lang['table_header_today_kills']      = 'Heutige Kills';
 $lang['table_header_yersterday_kills'] = 'Yesterday Kills';
 $lang['table_header_team_name']        = 'Team Name';
@@ -254,3 +259,9 @@ $lang['soap_send_body']    = 'Danke für deinen Einkauf!';
 $lang['email_password_recovery_p1'] = 'Password Recovery Confirmation';
 $lang['email_password_recovery_p2'] = 'Password Recovery';
 $lang['email_account_activation']   = 'Activate Your %s Account';
+
+/*Timeline Lang*/
+$lang['timeline_subtitle'] = 'Content Release Timeline';
+$lang['timeline_general']  = 'General';
+$lang['timeline_pve']      = 'PvE';
+$lang['timeline_pvp']      = 'PvP';
