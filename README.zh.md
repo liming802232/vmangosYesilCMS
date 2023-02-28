@@ -1,6 +1,7 @@
 ![YesilCMS Logo](https://i.imgur.com/Vj0GNLV.png)
 # YesilCMS &middot; [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/yesilmen-vm/YesilCMS/pulls) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/yesilmen-vm/YesilCMS/blob/master/LICENSE)
 
+Read in: [英语 :gb:](README.md) | [简中 :zh:](README_zh.md)
 **YesilCMS** is based on [BlizzCMS](https://github.com/WoW-CMS/BlizzCMS) and specifically adapted for [VMaNGOS Core](https://github.com/vmangos/core) and includes new features and many bug fixes.
 
 You can check out the demo on through here; [YesilCMS Demo](https://yesilcms.page).
