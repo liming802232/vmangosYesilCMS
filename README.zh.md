@@ -26,18 +26,18 @@ Read in: [英语 :gb:](README.md) | [简中 :cn:](README_zh.md)
 - 全新的 **可定制的军械库。**
   - 基本角色信息
   - 3D模型查看器 (Fast: Uses plain `displayID`, Detailed: Converts old `displayID` to Classic `displayID` using Classic's DBC. You can also create a separate table instead of remote call.)
-  - Dynamic Base Stats
-  - Progressive Armory (1.2 to 1.12 can be selected by user as well)
+  - 动态基础统计数据
+  - 渐进式军械库 (1.2 到 1.12 也可由用户选择)
   - Primary & Secondary Professions
-  - PvP Stats
-  - Ability to show enchants on items (by using WoWHead's tooltip instead of ClassicDB)
-  - Ability to show all character stats instead of just base-ones
-- Brand new **PvP Page**
-  - All pvp data that player may want to see.
-  - Wide filtering option.
-    - Ability to filter by All Time and Last Week
-    - Ability to filter by Faction
-    - Ability to filter by specific name
+  - PvP对战统计
+  - 能够在物品上显示附魔（通过使用WoWHead的工具提示而不是ClassicDB）。
+  - 能够显示所有角色属性，而不仅仅是基本属性。
+- 全新的 **PvP对战页面**
+  - 玩家可能想要查看的所有 pvp 数据。
+  - 广泛的过滤选项。
+    - 能够按所有时间和上周进行过滤
+    - 能够按阵营过滤
+    - 能够按特定名称进行筛选
 - Unique **Timeline Module** with responsive design and full flexibility.
   - Ability to add any patch on choice (including custom ones)
   - Ability to order automatically or custom regardless of date
