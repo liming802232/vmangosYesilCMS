@@ -38,31 +38,31 @@ Read in: [英语 :gb:](README.md) | [简中 :cn:](README_zh.md)
     - 能够按所有时间和上周进行过滤
     - 能够按阵营过滤
     - 能够按特定名称进行筛选
-- Unique **Timeline Module** with responsive design and full flexibility.
-  - Ability to add any patch on choice (including custom ones)
-  - Ability to order automatically or custom regardless of date
+- 独特的 **时间轴模块** ，具有响应式设计和充分的灵活性。
+  - 能够根据选择添加任何补丁（包括自定义补丁）
+  - 能够自动订购或自定义，无论日期如何
   - Separated Description, General, PvE and PvP sections better for maintainability.
   - Ability to add unique image for each patch.
-- Rest API implementation for future developments.
-- Built-in **account activation.**
-- Built-in **account recovery.**
-- Built-in **tooltip, item and spell viewer.**
-- Built-in dynamic CSRF protection on each page.
-- Tweaked Admin Panel. (SMTP tester, handlers and logs etc.)
-- On-the-fly downloadable Realmlist.
-- Bug fixes and improvements.
+- 用于未来开发的 REST API 实现。
+- 内置 **账户激活。**
+- 内置 **账户恢复。*
+- 内置 **工具提示、物品和法术查看器。**
+- 每个页面上都内置动态 CSRF 保护。
+- 调整了管理面板。（SMTP测试器，处理程序和日志等）
+- 可即时下载的领域列表。
+- 错误修复和改进。
 
-## System Requirements
+## 系统要求
 
-- Functioning vMaNGOS server (on same/another host)
-- OS (**Including Windows**)
-- PHP 7.2+ (including 8.1.x - beta)
+- 正常运行的 vMaNGOS 服务器（在同一台/另一台主机上）
+- OS操作系统 (**包含 Windows**)
+- PHP 7.2+ (包含 8.1.x - 测试版)
 - Composer
-- Web-server (Tested on Nginx, Apache and IIS)
-- Database (MySQL/MariaDB)
+- Web服务器（在Nginx，Apache和IIS上测试）
+- 数据库 (MySQL/MariaDB)
 - Redis for *nix operating systems
 
-### PHP Extensions
+### PHP 扩展
 - ctype
 - curl
 - gd
@@ -71,22 +71,22 @@ Read in: [英语 :gb:](README.md) | [简中 :cn:](README_zh.md)
 - mbstring
 - mysqli
 - openssl
-- redis (only for *nix operating systems)
+- redis (仅适用于 *nix 操作系统)
 - soap
 
-## Installation
-This is an example installation for **RHEL OS** with;
+## 安装
+这是 **RHEL OS**的示例安装;
 
-- **nginx 1.21.6** (customly compiled for Brotli, Pagespeed, PCRE2, Zlib, Headers),
+- **nginx 1.21.6** (为 Brotli, Pagespeed, PCRE2, Zlib, Headers定制编译),
 - **PHP 7.4.30 & PHP7.4-FPM**,
 - **MariaDB 10.6.7**,
 - **Redis v6.0.16**
 
-and assuming you already installed & configured above.
+并假设您已经在上面安装和配置。
 
-*Note: for FastCGI, you can set CI_ENV by `fastcgi_param CI_ENV ENV_NAME` Available Environment names are `development, testing, environment`*
+*注意：对于 FastCGI，您可以通过fastcgi_param CI_ENV ENV_NAME设置CI_ENV 可用环境名称为开发、测试、环境 `development, testing, environment`*
 
-Clone project from Github to your web server root folder or document root and grant required ownership & permissions:
+将项目从Github克隆到您的Web服务器根文件夹或文档根目录，并授予所需的所有权和权限:
 
 ```bash
   git clone https://github.com/yesilmen-vm/YesilCMS.git [document_root]
@@ -95,11 +95,11 @@ Clone project from Github to your web server root folder or document root and gr
   sudo find [document_root] -type f -exec chmod 644 {} \;    
   sudo find [document_root] -type d -exec chmod 755 {} \;
 ```
-You can either update dependencies to their latest versions or install them from scratch. To update;
+可以将依赖项更新到最新版本，也可以从头开始安装它们。要更新;
 ```bash
   composer update
 ```
-Create required Database & User for CMS:
+为 CMS 创建所需的数据库和用户:
 ```mariadb
   CREATE DATABASE [cms_db];
   CREATE USER '[cms_user]'@'[host]' IDENTIFIED BY '[password]';
@@ -108,12 +108,12 @@ Create required Database & User for CMS:
   FLUSH PRIVILEGES;
 ```
 
-Then go to the site and proceed with the installation instructions.
+然后转到该站点并继续执行安装说明。
 
-## API Reference
-There are 5 only method available yet, all CRUD operations are planned to be done from here in order to ensure infrastructure change afterwards.
+## API Reference 接口参考
+目前只有 5 种方法可用，所有 CRUD 操作都计划从这里完成，以确保之后的基础设施发生变化。
 
-#### Get new display ID
+#### 获取物品新的显示 ID
 Takes `item_id` and returns new `ItemDisplayInfoID` from Classic build  (1.14.3.44403) on [WoW Tools](https://github.com/Marlamin/wow.tools). DBC can be downloaded and used locally as well.
 
 ```http
@@ -124,7 +124,7 @@ Takes `item_id` and returns new `ItemDisplayInfoID` from Classic build  (1.14.3.
 |:----------|:----------|:-------------------------|
 | `item_id` | `integer` | **Required**. Item entry |
 
-#### Get Item Info
+#### 获取物品信息
 Takes `item_id` and `patch` and returns information of given item if exists in database within given patch.
 
 ```http
@@ -136,7 +136,7 @@ Takes `item_id` and `patch` and returns information of given item if exists in d
 | `item_id` | `integer` | **Required**. Item entry            |
 | `patch`   | `integer` | **Optional**. Patch version of item |
 
-#### Get Item Tooltip Info
+#### 获取物品工具提示信息
 Takes `item_id` and `patch` and returns `id`, `type`, `name`, `icon`, `quality` and `tooltip`. Tooltip parameter will be
 html formatted.
 
@@ -149,7 +149,7 @@ html formatted.
 | `item_id` | `integer` | **Required**. Item entry            |
 | `patch`   | `integer` | **Optional**. Patch version of item |
 
-#### Get Spell Tooltip Info
+#### 获取技能工具提示信息
 Takes `spell_id` and `patch` and returns `id`, `type`, `name`, `icon`, and `tooltip`. Tooltip parameter will be
 html formatted.
 
